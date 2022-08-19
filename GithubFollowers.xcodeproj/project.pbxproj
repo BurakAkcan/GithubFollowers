@@ -7,23 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5416F8D628AFDA480012C27B /* FollowersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5416F8D528AFDA480012C27B /* FollowersVC.swift */; };
 		5450219828AE8382005848B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5450219728AE8382005848B4 /* AppDelegate.swift */; };
 		5450219A28AE8382005848B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5450219928AE8382005848B4 /* SceneDelegate.swift */; };
 		545021A128AE8383005848B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 545021A028AE8383005848B4 /* Assets.xcassets */; };
 		545021A428AE8383005848B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 545021A228AE8383005848B4 /* LaunchScreen.storyboard */; };
+		546BFFEE28AEBBB800D5F9C5 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546BFFED28AEBBB800D5F9C5 /* GFButton.swift */; };
 		54F97F5328AE9DDF00460CAE /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F97F5228AE9DDF00460CAE /* SearchVC.swift */; };
 		54F97F5528AE9E1500460CAE /* FavoritesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F97F5428AE9E1500460CAE /* FavoritesListVC.swift */; };
+		54FA3E6628AF5BD8002E0B17 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FA3E6528AF5BD8002E0B17 /* GFTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5416F8D528AFDA480012C27B /* FollowersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersVC.swift; sourceTree = "<group>"; };
 		5450219428AE8382005848B4 /* GithubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5450219728AE8382005848B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5450219928AE8382005848B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		545021A028AE8383005848B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		545021A328AE8383005848B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		545021A528AE8383005848B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		546BFFED28AEBBB800D5F9C5 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		54F97F5228AE9DDF00460CAE /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		54F97F5428AE9E1500460CAE /* FavoritesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListVC.swift; sourceTree = "<group>"; };
+		54FA3E6528AF5BD8002E0B17 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,9 @@
 				545021A528AE8383005848B4 /* Info.plist */,
 				54F97F5228AE9DDF00460CAE /* SearchVC.swift */,
 				54F97F5428AE9E1500460CAE /* FavoritesListVC.swift */,
+				546BFFED28AEBBB800D5F9C5 /* GFButton.swift */,
+				54FA3E6528AF5BD8002E0B17 /* GFTextField.swift */,
+				5416F8D528AFDA480012C27B /* FollowersVC.swift */,
 			);
 			path = GithubFollowers;
 			sourceTree = "<group>";
@@ -137,7 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54FA3E6628AF5BD8002E0B17 /* GFTextField.swift in Sources */,
 				54F97F5528AE9E1500460CAE /* FavoritesListVC.swift in Sources */,
+				5416F8D628AFDA480012C27B /* FollowersVC.swift in Sources */,
+				546BFFEE28AEBBB800D5F9C5 /* GFButton.swift in Sources */,
 				54F97F5328AE9DDF00460CAE /* SearchVC.swift in Sources */,
 				5450219828AE8382005848B4 /* AppDelegate.swift in Sources */,
 				5450219A28AE8382005848B4 /* SceneDelegate.swift in Sources */,
