@@ -18,7 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.rootViewController = createTabbar()
-        window?.makeKeyAndVisible() 
+        window?.makeKeyAndVisible()
+        
+        configureNavigationBar()
     }
     
     //MARK: Create Navigation Controllers
@@ -44,6 +46,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UITabBar.appearance().backgroundColor = UIColor.systemGray6
         tabbar.viewControllers = [createSearchNC(),createFavNC()]
         return tabbar
+    }
+    func configureNavigationBar(){
+        UINavigationBar.appearance().tintColor = .systemGreen
     }
     
 

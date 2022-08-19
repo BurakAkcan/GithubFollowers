@@ -11,6 +11,11 @@ class SearchVC: UIViewController {
     let logoImage = UIImageView()
     let usernameTextField = GFTextField()
     let callActionButton = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
+    let customAlert = GFAlertVCViewController(title: "Error", message: "Please enter an username 🙃", buttonTitle: "Ok")
+    
+    var isUserNameEntered:Bool{
+        return !(usernameTextField.text!.isEmpty)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +85,10 @@ class SearchVC: UIViewController {
     //MARK: -Navigation
     
    @objc func pushFollowerListVC(){
+       guard isUserNameEntered else{
+          presentGFAlertOnMainThread(title: "Empty Username", message: "Please enter an username 😎.", buttonTitle: "Ok")
+         return
+           }
         let followersVC = FollowersVC()
        followersVC.username = usernameTextField.text
        followersVC.title = usernameTextField.text
