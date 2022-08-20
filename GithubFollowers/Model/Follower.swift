@@ -8,7 +8,7 @@
 
 import Foundation
 
-// MARK: - FollowerElement
+// MARK: - Follower
 struct Follower: Codable {
     let login: String
     let id: Int
