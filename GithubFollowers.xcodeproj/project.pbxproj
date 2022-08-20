@@ -106,8 +106,8 @@
 		5450218B28AE8382005848B4 = {
 			isa = PBXGroup;
 			children = (
-				5450219628AE8382005848B4 /* GithubFollowers */,
 				5442FABC28B0DD0500F17BA3 /* Products */,
+				5450219628AE8382005848B4 /* GithubFollowers */,
 				5450219528AE8382005848B4 /* Products */,
 			);
 			sourceTree = "<group>";
