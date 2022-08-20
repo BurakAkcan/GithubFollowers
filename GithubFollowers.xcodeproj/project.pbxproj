@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5412214228B18C3F002F122E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5412214128B18C3F002F122E /* AppError.swift */; };
 		5416F8D628AFDA480012C27B /* FollowersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5416F8D528AFDA480012C27B /* FollowersVC.swift */; };
 		5416F8D828AFF7EA0012C27B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5416F8D728AFF7EA0012C27B /* String+Extension.swift */; };
 		5416F8DB28AFFB900012C27B /* GFTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5416F8DA28AFFB900012C27B /* GFTitleLabel.swift */; };
@@ -20,12 +21,14 @@
 		545021A428AE8383005848B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 545021A228AE8383005848B4 /* LaunchScreen.storyboard */; };
 		546BFFEE28AEBBB800D5F9C5 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546BFFED28AEBBB800D5F9C5 /* GFButton.swift */; };
 		549FCA8528B0EF76007E70CA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549FCA8428B0EF76007E70CA /* User.swift */; };
+		54CB216C28B10E3100A8A2A0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CB216B28B10E3100A8A2A0 /* NetworkManager.swift */; };
 		54F97F5328AE9DDF00460CAE /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F97F5228AE9DDF00460CAE /* SearchVC.swift */; };
 		54F97F5528AE9E1500460CAE /* FavoritesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F97F5428AE9E1500460CAE /* FavoritesListVC.swift */; };
 		54FA3E6628AF5BD8002E0B17 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FA3E6528AF5BD8002E0B17 /* GFTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5412214128B18C3F002F122E /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		5416F8D528AFDA480012C27B /* FollowersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersVC.swift; sourceTree = "<group>"; };
 		5416F8D728AFF7EA0012C27B /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		5416F8DA28AFFB900012C27B /* GFTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTitleLabel.swift; sourceTree = "<group>"; };
@@ -41,6 +44,7 @@
 		545021A528AE8383005848B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		546BFFED28AEBBB800D5F9C5 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		549FCA8428B0EF76007E70CA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		54CB216B28B10E3100A8A2A0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		54F97F5228AE9DDF00460CAE /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		54F97F5428AE9E1500460CAE /* FavoritesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListVC.swift; sourceTree = "<group>"; };
 		54FA3E6528AF5BD8002E0B17 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
@@ -135,14 +139,24 @@
 		5450219628AE8382005848B4 /* GithubFollowers */ = {
 			isa = PBXGroup;
 			children = (
+				54CB216A28B10E1300A8A2A0 /* Managers */,
 				545021A528AE8383005848B4 /* Info.plist */,
 				5442FABE28B0E5AA00F17BA3 /* Model */,
 				5442FABD28B0DD4200F17BA3 /* Support */,
 				5442FABB28B0DC8100F17BA3 /* Custom Views */,
 				5442FABA28B0DC0100F17BA3 /* Screens */,
 				5416F8D928AFFB5D0012C27B /* Extensions */,
+				5412214128B18C3F002F122E /* AppError.swift */,
 			);
 			path = GithubFollowers;
+			sourceTree = "<group>";
+		};
+		54CB216A28B10E1300A8A2A0 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				54CB216B28B10E3100A8A2A0 /* NetworkManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +233,7 @@
 				5416F8D828AFF7EA0012C27B /* String+Extension.swift in Sources */,
 				54FA3E6628AF5BD8002E0B17 /* GFTextField.swift in Sources */,
 				54F97F5528AE9E1500460CAE /* FavoritesListVC.swift in Sources */,
+				5412214228B18C3F002F122E /* AppError.swift in Sources */,
 				5416F8D628AFDA480012C27B /* FollowersVC.swift in Sources */,
 				546BFFEE28AEBBB800D5F9C5 /* GFButton.swift in Sources */,
 				549FCA8528B0EF76007E70CA /* User.swift in Sources */,
@@ -227,6 +242,7 @@
 				54F97F5328AE9DDF00460CAE /* SearchVC.swift in Sources */,
 				5416F8DB28AFFB900012C27B /* GFTitleLabel.swift in Sources */,
 				5450219828AE8382005848B4 /* AppDelegate.swift in Sources */,
+				54CB216C28B10E3100A8A2A0 /* NetworkManager.swift in Sources */,
 				5450219A28AE8382005848B4 /* SceneDelegate.swift in Sources */,
 				5416F8DD28AFFDD00012C27B /* GFBodyLabel.swift in Sources */,
 			);
