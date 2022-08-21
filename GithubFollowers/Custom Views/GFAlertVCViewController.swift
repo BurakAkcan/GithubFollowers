@@ -42,6 +42,10 @@ class GFAlertVCViewController: UIViewController {
     func configureContainerView(){
         view.addSubview(containerView)
         containerView.backgroundColor = .systemBackground
+        containerView.layer.shadowColor = UIColor.black.cgColor
+        containerView.layer.shadowOpacity = 1
+        
+        containerView.layer.shadowRadius = 16
         containerView.layer.cornerRadius = 16
         containerView.layer.borderWidth = 2
         containerView.layer.borderColor = UIColor.white.cgColor
