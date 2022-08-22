@@ -33,12 +33,16 @@ class FollowerCell: UICollectionViewCell {
     private func configure(){
         addSubview(avaterImageView)
         addSubview(usernameLabel)
+        avaterImageView.setContentHuggingPriority(.defaultHigh, for: .vertical) // LOOK Here !!
+        
+        
         
         NSLayoutConstraint.activate([
             avaterImageView.topAnchor.constraint(equalTo:contentView.topAnchor, constant: padding),
             avaterImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             avaterImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             avaterImageView.heightAnchor.constraint(equalTo:avaterImageView.widthAnchor),
+            
             
             usernameLabel.topAnchor.constraint(equalTo: avaterImageView.bottomAnchor, constant: 12),
             usernameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
@@ -48,6 +52,7 @@ class FollowerCell: UICollectionViewCell {
             
         ])
     }
+    
 }
 
 //contentView cell content

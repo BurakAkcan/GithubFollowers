@@ -9,7 +9,7 @@ import UIKit
 
 class GFAvatarImageView: UIImageView {
     
-    let placeHolderImage = UIImage(named: "avatar-placeholder")!
+    let placeHolderImage = UIImage(named: "kale")!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,10 +23,13 @@ class GFAvatarImageView: UIImageView {
     
     private func configure(){
         layer.cornerRadius = 10
+        layer.backgroundColor = UIColor.black.cgColor
         clipsToBounds = true
         image = placeHolderImage
         translatesAutoresizingMaskIntoConstraints = false
-        self.contentMode = .scaleAspectFit
+        
+        
+        
     }
     
 
