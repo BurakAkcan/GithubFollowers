@@ -51,6 +51,7 @@ class FollowersVC: UIViewController {
         collectionView.backgroundColor = .systemBackground
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
         
+        
     }
     
     func createThreeColumnFlowLayout()->UICollectionViewFlowLayout{
