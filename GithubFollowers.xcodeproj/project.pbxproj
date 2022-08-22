@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5403CFF628B39217005978D3 /* UIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5403CFF528B39217005978D3 /* UIHelpers.swift */; };
 		5412214228B18C3F002F122E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5412214128B18C3F002F122E /* AppError.swift */; };
 		5416F8D628AFDA480012C27B /* FollowersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5416F8D528AFDA480012C27B /* FollowersVC.swift */; };
 		5416F8D828AFF7EA0012C27B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5416F8D728AFF7EA0012C27B /* String+Extension.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5403CFF528B39217005978D3 /* UIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelpers.swift; sourceTree = "<group>"; };
 		5412214128B18C3F002F122E /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		5416F8D528AFDA480012C27B /* FollowersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersVC.swift; sourceTree = "<group>"; };
 		5416F8D728AFF7EA0012C27B /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				5412214128B18C3F002F122E /* AppError.swift */,
+				5403CFF528B39217005978D3 /* UIHelpers.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				54F97F5528AE9E1500460CAE /* FavoritesListVC.swift in Sources */,
 				5412214228B18C3F002F122E /* AppError.swift in Sources */,
 				5416F8D628AFDA480012C27B /* FollowersVC.swift in Sources */,
+				5403CFF628B39217005978D3 /* UIHelpers.swift in Sources */,
 				546BFFEE28AEBBB800D5F9C5 /* GFButton.swift in Sources */,
 				544D7B4B28B254BB00A4D479 /* FollowerCell.swift in Sources */,
 				544D7B4D28B25F2300A4D479 /* GFAvatarImageView.swift in Sources */,
