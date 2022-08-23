@@ -36,6 +36,9 @@ class FollowerCell: UICollectionViewCell {
     private func configure(){
         addSubview(avaterImageView)
         addSubview(usernameLabel)
+        avaterImageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        usernameLabel.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
+        avaterImageView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
        
         
         
@@ -54,8 +57,7 @@ class FollowerCell: UICollectionViewCell {
             
             
         ])
-        avaterImageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
-        usernameLabel.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
+       
         
     }
     
