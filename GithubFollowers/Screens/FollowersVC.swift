@@ -20,6 +20,8 @@ class FollowersVC: UIViewController {
     
     var username:String!
     var followers:Followers = []
+    var page:Int  = 1
+    var hasMoreFollowers:Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +29,7 @@ class FollowersVC: UIViewController {
         
         configureViewController()
         configureCollection()
-        getFollowers()
+        getFollowers(username: username, page: page)
         configureDataSource()
         }
     
@@ -39,6 +41,7 @@ class FollowersVC: UIViewController {
     func configureViewController(){
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+        
     }
     
     
@@ -47,19 +50,22 @@ class FollowersVC: UIViewController {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelpers.createThreeColumnFlowLayout(in: view))
         //Yukarıda collecitonView ı tanımlamsak view.addSubview komut satırı hata verecek çünkü collecitionView ı oluşturmedik
         view.addSubview(collectionView)
-        
+        collectionView.delegate = self
         collectionView.backgroundColor = .systemBackground
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
         }
     
     
     
-    func getFollowers(){
-        NetworkManager.shared.getFollower(for: username, page: 1) { [weak self] result in
+    func getFollowers(username:String,page:Int){
+        NetworkManager.shared.getFollower(for: username, page: page) { [weak self] result in
             guard let self = self else{return}
             switch result{
             case .success(let followers):
-                self.followers = followers
+                
+                if followers.count < 100 {self.hasMoreFollowers = false}
+                
+                self.followers.append(contentsOf: followers)
                 
                 //We update collectionView like reloadData() fonk.
                 self.updateData()
@@ -88,6 +94,24 @@ class FollowersVC: UIViewController {
         
     }
     
+}
+
+extension FollowersVC:UICollectionViewDelegate{
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        print("Offset = \(offsetY)")
+        print("contentHeight = \(contentHeight)")
+        print("height \(height)")
+        if offsetY > contentHeight - height{
+            guard hasMoreFollowers else{return}
+            page += 1
+            getFollowers(username: username, page: page)
+        }
+        
+        
+    }
 }
 
 
