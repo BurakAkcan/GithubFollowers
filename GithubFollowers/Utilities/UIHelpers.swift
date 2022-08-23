@@ -16,8 +16,16 @@ struct UIHelpers {
         let availableWidth = width - (padding * 2) - (minimumItemSpace * 2)
         let itemWidth = availableWidth / 3
         let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .vertical
+    
         flowLayout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
         flowLayout.itemSize = CGSize(width: itemWidth  , height: itemWidth + 40)
+        
+        flowLayout.minimumLineSpacing = 1
+        flowLayout.minimumInteritemSpacing = 1
+      
+        
+        
         
         return flowLayout
     }

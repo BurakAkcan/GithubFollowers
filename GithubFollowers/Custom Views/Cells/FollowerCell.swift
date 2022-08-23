@@ -28,13 +28,15 @@ class FollowerCell: UICollectionViewCell {
     
     func set(follower:Follower){
         usernameLabel.text = follower.login
+        avaterImageView.downloadImage(from: follower.avatarURL)
+        avaterImageView.contentMode = .scaleAspectFit
+        avaterImageView.clipsToBounds = true
     }
     
     private func configure(){
         addSubview(avaterImageView)
         addSubview(usernameLabel)
-        avaterImageView.setContentHuggingPriority(.defaultHigh, for: .vertical) // LOOK Here !!
-        
+       
         
         
         NSLayoutConstraint.activate([
@@ -44,6 +46,7 @@ class FollowerCell: UICollectionViewCell {
             avaterImageView.heightAnchor.constraint(equalTo:avaterImageView.widthAnchor),
             
             
+            
             usernameLabel.topAnchor.constraint(equalTo: avaterImageView.bottomAnchor, constant: 12),
             usernameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             usernameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
@@ -51,6 +54,9 @@ class FollowerCell: UICollectionViewCell {
             
             
         ])
+        avaterImageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        usernameLabel.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
+        
     }
     
 }
