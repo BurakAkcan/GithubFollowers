@@ -70,6 +70,14 @@ class FollowersVC: UIViewController {
                 
                 self.followers.append(contentsOf: followers)
                 
+                if self.followers.isEmpty{
+                    let message = "\(username) user doesn't have any followers.😞"
+                    DispatchQueue.main.async {
+                        self.showEmtpyStateView(with: message, in: self.view)
+                    }
+                   
+                }
+                
                 //We update collectionView like reloadData() fonk.
                 self.updateData()
             case .failure(let error):
