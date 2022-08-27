@@ -26,6 +26,8 @@
 		54714BE328B586CC0043CAED /* GFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54714BE228B586CC0043CAED /* GFEmptyStateView.swift */; };
 		549FCA8528B0EF76007E70CA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549FCA8428B0EF76007E70CA /* User.swift */; };
 		54C19E1528BA2D410040114C /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C19E1428BA2D410040114C /* UserInfoVC.swift */; };
+		54C19E1728BA96340040114C /* GFUserInfoHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C19E1628BA96340040114C /* GFUserInfoHeaderVC.swift */; };
+		54C19E1928BA96C40040114C /* GFSeconaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C19E1828BA96C40040114C /* GFSeconaryTitleLabel.swift */; };
 		54CB216C28B10E3100A8A2A0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CB216B28B10E3100A8A2A0 /* NetworkManager.swift */; };
 		54E33C9728B4BD7700FED88C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E33C9628B4BD7700FED88C /* UIImage+Extension.swift */; };
 		54F97F5328AE9DDF00460CAE /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F97F5228AE9DDF00460CAE /* SearchVC.swift */; };
@@ -55,6 +57,8 @@
 		54714BE228B586CC0043CAED /* GFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyStateView.swift; sourceTree = "<group>"; };
 		549FCA8428B0EF76007E70CA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		54C19E1428BA2D410040114C /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
+		54C19E1628BA96340040114C /* GFUserInfoHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFUserInfoHeaderVC.swift; sourceTree = "<group>"; };
+		54C19E1828BA96C40040114C /* GFSeconaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFSeconaryTitleLabel.swift; sourceTree = "<group>"; };
 		54CB216B28B10E3100A8A2A0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		54E33C9628B4BD7700FED88C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		54F97F5228AE9DDF00460CAE /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				5416F8E028AFFFD70012C27B /* GFAlertVCViewController.swift */,
+				54C19E1628BA96340040114C /* GFUserInfoHeaderVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 			children = (
 				5416F8DC28AFFDD00012C27B /* GFBodyLabel.swift */,
 				5416F8DA28AFFB900012C27B /* GFTitleLabel.swift */,
+				54C19E1828BA96C40040114C /* GFSeconaryTitleLabel.swift */,
 			);
 			path = Labels;
 			sourceTree = "<group>";
@@ -311,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54C19E1928BA96C40040114C /* GFSeconaryTitleLabel.swift in Sources */,
 				5416F8E328B02FBE0012C27B /* UIViewController+Extension.swift in Sources */,
 				5416F8D828AFF7EA0012C27B /* String+Extension.swift in Sources */,
 				54FA3E6628AF5BD8002E0B17 /* GFTextField.swift in Sources */,
@@ -326,6 +333,7 @@
 				5442FAC028B0E5BA00F17BA3 /* Follower.swift in Sources */,
 				54F97F5328AE9DDF00460CAE /* SearchVC.swift in Sources */,
 				5416F8DB28AFFB900012C27B /* GFTitleLabel.swift in Sources */,
+				54C19E1728BA96340040114C /* GFUserInfoHeaderVC.swift in Sources */,
 				54714BE328B586CC0043CAED /* GFEmptyStateView.swift in Sources */,
 				5450219828AE8382005848B4 /* AppDelegate.swift in Sources */,
 				54CB216C28B10E3100A8A2A0 /* NetworkManager.swift in Sources */,

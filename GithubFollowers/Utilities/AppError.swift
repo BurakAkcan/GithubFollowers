@@ -32,6 +32,27 @@ enum AppError:LocalizedError{
   
 }
 
+enum UserError:LocalizedError{
+    case urlError
+    case invalidUserResponse
+    case invaliUserData
+    case errorDecodingUser
+    
+    var errorDescription: String?{
+        switch self {
+        case .urlError:
+            return "Url Error "
+        case .invalidUserResponse:
+            return "Invalid user response from server "
+        case .invaliUserData:
+            return "The user data received from server was invalid"
+        case .errorDecodingUser:
+            return "The user data could not decode"
+        }
+    }
+    
+}
+
 
 //Note: Enum Associated Value
 //

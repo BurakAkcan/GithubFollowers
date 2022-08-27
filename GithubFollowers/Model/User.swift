@@ -11,17 +11,17 @@ import UIKit
 
 // MARK: - User
 struct User: Codable {
-    var login: String
-    var name:String?
-    var avatarURL: String
+    let login: String
+    let avatarURL: String
+    let name:String?
     var location:String?
     var bio:String?
-    var publicRepos:Int
-    var publicGist:Int
-    var htmlUrl:String
-    var following:Int
-    var followers:Int
-    var createdAt:String
+    let publicRepos:Int
+    let publicGist:Int
+    let htmlUrl:String
+    let following:Int
+    let followers:Int
+    let createdAt:String
     
 
   

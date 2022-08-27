@@ -139,7 +139,7 @@ extension FollowersVC:UICollectionViewDelegate{
         let tapArray = isSearching ? filteredFollower : followers
         let follower = tapArray[indexPath.item]
         let destVC = UserInfoVC()
-        destVC.userName = follower.login 
+        destVC.userName = follower.login   
         //Navigation ekledik viewControllerımıza
         let navController = UINavigationController(rootViewController: destVC)
        
