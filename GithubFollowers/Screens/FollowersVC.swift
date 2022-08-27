@@ -23,6 +23,7 @@ class FollowersVC: UIViewController {
     var filteredFollower:Followers = []
     var page:Int  = 1
     var hasMoreFollowers:Bool = true
+    var isSearching:Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,7 @@ class FollowersVC: UIViewController {
     func configureViewController(){
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.tintColor = .systemGreen
         
     }
     
@@ -131,6 +133,17 @@ extension FollowersVC:UICollectionViewDelegate{
             page += 1
             getFollowers(username: username, page: page)
         }
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        #warning("Paggination olduğunda haa veriyor")
+        let tapArray = isSearching ? filteredFollower : followers
+        let follower = tapArray[indexPath.item]
+        let destVC = UserInfoVC()
+        destVC.userName = follower.login 
+        //Navigation ekledik viewControllerımıza
+        let navController = UINavigationController(rootViewController: destVC)
+       
+        present(navController, animated: true, completion: nil)
         
         
     }
@@ -140,11 +153,13 @@ extension FollowersVC:UISearchResultsUpdating,UISearchBarDelegate{
     func updateSearchResults(for searchController: UISearchController) {
         guard let filter = searchController.searchBar.text,
               !filter.isEmpty else{ return}
+        isSearching = true
         filteredFollower = followers.filter({$0.login.lowercased().contains(filter.lowercased())})
         updateData(listFollower: filteredFollower)
  }
     //Arama kımında cancel dedğimizde sadece aradığımız kelimeeleri içeren kişiler geliyor liste eski haline dönmüyor bunun için cancel buton fonk kullanmalıyız tabiki UISearchBarDelegate protocolunu extend etmemeiz lazım viewımıza.
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isSearching = false
         updateData(listFollower: self.followers)
     }
     
