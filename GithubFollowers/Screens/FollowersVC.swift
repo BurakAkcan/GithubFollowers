@@ -20,15 +20,16 @@ class FollowersVC: UIViewController {
     
     var username:String!
     var followers:Followers = []
+    var filteredFollower:Followers = []
     var page:Int  = 1
     var hasMoreFollowers:Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         configureViewController()
         configureCollection()
+        configureSearchController()
         getFollowers(username: username, page: page)
         configureDataSource()
         }
@@ -55,6 +56,16 @@ class FollowersVC: UIViewController {
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
         }
     
+    func configureSearchController(){
+        let searchController = UISearchController()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Search for a username"
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
+        
+    }
+    
     
     
     func getFollowers(username:String,page:Int){
@@ -79,7 +90,7 @@ class FollowersVC: UIViewController {
                 }
                 
                 //We update collectionView like reloadData() fonk.
-                self.updateData()
+                self.updateData(listFollower: self.followers)
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Error", message: error.localizedDescription, buttonTitle: "Ok")
                
@@ -95,10 +106,10 @@ class FollowersVC: UIViewController {
             
         })
     }
-    func updateData(){
+    func updateData(listFollower:Followers){
         var snapshot = NSDiffableDataSourceSnapshot<Section,Follower>()
         snapshot.appendSections([.main])
-        snapshot.appendItems(followers)
+        snapshot.appendItems(listFollower)
         DispatchQueue.main.async {
             self.dataSource.apply(snapshot, animatingDifferences: true)
         }
@@ -125,6 +136,21 @@ extension FollowersVC:UICollectionViewDelegate{
     }
 }
 
+extension FollowersVC:UISearchResultsUpdating,UISearchBarDelegate{
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let filter = searchController.searchBar.text,
+              !filter.isEmpty else{ return}
+        filteredFollower = followers.filter({$0.login.lowercased().contains(filter.lowercased())})
+        updateData(listFollower: filteredFollower)
+ }
+    //Arama kımında cancel dedğimizde sadece aradığımız kelimeeleri içeren kişiler geliyor liste eski haline dönmüyor bunun için cancel buton fonk kullanmalıyız tabiki UISearchBarDelegate protocolunu extend etmemeiz lazım viewımıza.
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        updateData(listFollower: self.followers)
+    }
+    
+    
+}
+
 
 
 
@@ -134,5 +160,11 @@ extension FollowersVC:UICollectionViewDelegate{
  -Diffable data sourceda indexPath yerine indentifier item ve sectionlar kullanmanız gerekmektedir.
 - Itemlar için oluşturduğunuz nesnelerde identifier unique olmak zorundadır. Bunuda sağlamak için Hashable protokolünden faydalanılır. Section yapısını ise enum araçılığı ile çözülebilir. Enumlarda Hashable protokolü otomatik olarak uygulanmaktadır.
  - Snapshot => Diffable data source sınıfında görüntülenmesi istenen veri snapshot haline getirilip ve apply metodu araçılığı ile bildirilir.
+ 
+ SearchController
+ -Önce searchController tanımlıyoruz
+ -SearchController a searchUpdateResult delegate yapısını uyguluyouz ve ViewControllera bunu implemente ediyoruz
+ -navigationItem.searchController a oluşturduğumuz searchControllerı ekliyoruz
+ 
  
  */
