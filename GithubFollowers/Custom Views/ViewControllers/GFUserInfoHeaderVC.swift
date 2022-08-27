@@ -30,8 +30,24 @@ class GFUserInfoHeaderVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubview()
+        configure()
+        layoutUI()
 
     }
+    
+    func configure(){
+        avatarImageView.downloadImage(from: user.avatarURL)
+        usernameLabel.text      = user.login
+        nameLabel.text          = user.name ?? "Not Available"
+        locationLabel.text      = user.location ?? "No location"
+        bioLabel.text           = user.bio ?? "No bio available"
+        bioLabel.numberOfLines  = 3
+        iconImageView.image     = UIImage(systemName: "mappin.and.ellipse")
+        iconImageView.tintColor = .secondaryLabel
+        
+        
+    }
+    
     func addSubview(){
         view.addSubview(avatarImageView)
         view.addSubview(nameLabel)
