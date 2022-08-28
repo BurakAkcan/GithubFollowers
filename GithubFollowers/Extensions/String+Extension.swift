@@ -19,4 +19,15 @@ extension String {
         let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordFormat)
         return passwordPredicate.evaluate(with: self)
     }
+    
+    func convertToDate()->Date?{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        dateFormatter.locale = Locale(identifier:"tr_TR")
+        dateFormatter.timeZone = .current
+        
+
+        return dateFormatter.date(from: self)
+    }
+    
 }

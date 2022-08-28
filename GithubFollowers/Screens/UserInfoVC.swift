@@ -13,6 +13,7 @@ class UserInfoVC: UIViewController {
     let headerView = UIView()
     let itemViewOne = UIView()
     let itemViewTwo = UIView()
+    let dateLAbel = GFBodyLabel(textAlign: .center)
     
     //MARK: -Properties
     var userName:String!
@@ -21,7 +22,7 @@ class UserInfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewList = [headerView,itemViewOne,itemViewTwo]
+        viewList = [headerView,itemViewOne,itemViewTwo,dateLAbel]
         
         configureViewControler()
         layoutUI()
@@ -50,6 +51,7 @@ class UserInfoVC: UIViewController {
                     self.add(chilVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
                     self.add(chilVC: GFRepoItemVC(user: user), to: self.itemViewOne)
                     self.add(chilVC: GFFollowerItemVC(user: user), to: self.itemViewTwo)
+                    self.dateLAbel.text = "Github since \(user.createdAt.convertToDate()?.converToCustomDateFormat() ?? "N/A")"
                 }
                 
             case .failure(let error):
@@ -88,9 +90,10 @@ class UserInfoVC: UIViewController {
             itemViewTwo.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -padding),
             itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight),
             
-            
-            
-            
+            dateLAbel.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: padding),
+            dateLAbel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            dateLAbel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            dateLAbel.heightAnchor.constraint(equalToConstant: 18)
         ])
     }
 
