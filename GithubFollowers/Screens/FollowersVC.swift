@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol FollowerListVCDelegate:AnyObject{
+    func didRequestFollowers(for userName:String)
+}
+
 class FollowersVC: UIViewController {
     
     enum Section{
@@ -135,10 +139,11 @@ extension FollowersVC:UICollectionViewDelegate{
         }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        #warning("Paggination olduğunda haa veriyor")
+        
         let tapArray = isSearching ? filteredFollower : followers
         let follower = tapArray[indexPath.item]
         let destVC = UserInfoVC()
+        destVC.delegate = self
         destVC.userName = follower.login   
         //Navigation ekledik viewControllerımıza
         let navController = UINavigationController(rootViewController: destVC)
@@ -161,6 +166,20 @@ extension FollowersVC:UISearchResultsUpdating,UISearchBarDelegate{
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         isSearching = false
         updateData(listFollower: self.followers)
+    }
+    
+}
+
+extension FollowersVC:FollowerListVCDelegate{
+    func didRequestFollowers(for userName: String) {
+        self.username = userName
+        title = userName
+        page = 1
+        followers.removeAll()
+        filteredFollower.removeAll()
+        collectionView.setContentOffset(.zero, animated: true)
+        getFollowers(username: userName, page: page)
+        
     }
     
     

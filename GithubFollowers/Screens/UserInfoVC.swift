@@ -7,7 +7,10 @@
 
 import UIKit
 
+
+
 class UserInfoVC: UIViewController {
+   
     
     //MARK: -Views
     let headerView = UIView()
@@ -18,6 +21,7 @@ class UserInfoVC: UIViewController {
     //MARK: -Properties
     var userName:String!
     var viewList:[UIView] = []
+    weak var delegate:FollowerListVCDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +52,7 @@ class UserInfoVC: UIViewController {
             switch result {
             case .success(let user):
                 DispatchQueue.main.async {
-                    self.add(chilVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
-                    self.add(chilVC: GFRepoItemVC(user: user), to: self.itemViewOne)
-                    self.add(chilVC: GFFollowerItemVC(user: user), to: self.itemViewTwo)
-                    self.dateLAbel.text = "Github since \(user.createdAt.convertToDate()?.converToCustomDateFormat() ?? "N/A")"
+                    self.configureUIElements(with: user)
                 }
                 
             case .failure(let error):
@@ -59,6 +60,19 @@ class UserInfoVC: UIViewController {
             }
             }
         }
+    
+    func configureUIElements(with user:User){
+        let repoItemVC = GFRepoItemVC(user: user)
+        repoItemVC.delegate = self
+        
+        let followerItemVC = GFFollowerItemVC(user: user)
+        followerItemVC.delegate = self
+        
+        self.add(chilVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
+        self.add(chilVC: repoItemVC, to: self.itemViewOne)
+        self.add(chilVC: followerItemVC, to: self.itemViewTwo)
+        self.dateLAbel.text = "Github since \(user.createdAt.convertToDate()?.convertFromDateToString() ?? "N/A")"
+    }
     
     func layoutUI(){
         for i in viewList {
@@ -107,3 +121,25 @@ class UserInfoVC: UIViewController {
     }
 
 }
+
+extension UserInfoVC:UserInfoVCDelegate{
+    
+    func didTapGithubProfile(for user: User) {
+        guard let url = URL(string: user.htmlUrl) else{
+            presentGFAlertOnMainThread(title: "Invalid Url", message: "This user is invalid.", buttonTitle: "Ok")
+            return}
+        presentSafariVC(with: url)
+    }
+    
+    func didTapGetFollowers(for user: User) {
+        guard  user.followers != 0 else{
+            presentGFAlertOnMainThread(title: "No Followers", message: "This user not yet have followers", buttonTitle: "Ok")
+            return}
+        delegate.didRequestFollowers(for: user.login)
+        dismissVC()
+    }
+    
+  }
+    
+   
+
