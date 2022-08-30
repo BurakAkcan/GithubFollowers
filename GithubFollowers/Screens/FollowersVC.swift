@@ -134,7 +134,7 @@ class FollowersVC: UIViewController {
                 PersistanceManager.updateWith(favorite: favorite, actionType: .add) {[weak self] error in
                     guard let self = self else{return}
                     guard let error = error else {
-                        self.presentGFAlertOnMainThread(title: "Succes", message: "You have succesfully favorited this user 🎉", buttonTitle: "Good")
+                        self.presentGFAlertOnMainThread(title: "Succes", message: "You have succesfully favorited \(user.login) 🎉", buttonTitle: "Good")
                         return
                     }
                     self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.localizedDescription, buttonTitle: "Ok")

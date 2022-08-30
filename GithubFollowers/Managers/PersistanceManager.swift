@@ -26,6 +26,8 @@ enum PersistanceManager{
                 switch actionType {
                 case .add:
                     guard !retrieveFavorites.contains(favorite) else{
+                        #warning("Bug fix remove All")
+                        retrieveFavorites.removeAll(keepingCapacity: true)
                         completion(.alreadyFavoriteError) //Zaten böyle bir favori var
                         return
                     }
