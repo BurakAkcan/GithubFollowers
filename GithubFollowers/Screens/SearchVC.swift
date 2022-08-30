@@ -12,6 +12,7 @@ class SearchVC: UIViewController {
     let usernameTextField = GFTextField()
     let callActionButton = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
     let customAlert = GFAlertVCViewController(title: "Error", message: "Please enter an username 🙃", buttonTitle: "Ok")
+    var logoImageViewTopConstraint:NSLayoutConstraint!
     
     var isUserNameEntered:Bool{
         return !(usernameTextField.text!.isEmpty)
@@ -49,6 +50,11 @@ class SearchVC: UIViewController {
         if let logoImageName = UIImage(named: "gh-logo"){
             logoImage.image = logoImageName
         }
+        let topConsraitConstant:CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
+        
+        logoImageViewTopConstraint = logoImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConsraitConstant)
+        logoImageViewTopConstraint.isActive = true
+        
         NSLayoutConstraint.activate([
             logoImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 80),
             logoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -90,7 +96,8 @@ class SearchVC: UIViewController {
           presentGFAlertOnMainThread(title: "Empty Username", message: "Please enter an username 😎.", buttonTitle: "Ok")
          return
            }
-        let followersVC = FollowersVC()
+       usernameTextField.resignFirstResponder()
+       let followersVC = FollowersVC()
        followersVC.username = usernameTextField.text
        followersVC.title = usernameTextField.text
        navigationController?.pushViewController(followersVC, animated: true)
