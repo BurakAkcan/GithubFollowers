@@ -24,8 +24,8 @@ class GFDataLoadingViewController: UIViewController {
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            activityIndicator.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
           ])
         activityIndicator.startAnimating()
     }
@@ -42,6 +42,7 @@ class GFDataLoadingViewController: UIViewController {
         let emptyStateView = GFEmptyStateView(message: message,view:view)
         emptyStateView.frame = view.bounds
         view.addSubview(emptyStateView)
+        print("GElen *************************************  \(view)")
     }
 
    

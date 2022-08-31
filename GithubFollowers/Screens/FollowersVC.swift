@@ -77,7 +77,6 @@ class FollowersVC: GFDataLoadingViewController {
     func configureSearchController(){
         let searchController = UISearchController()
         searchController.searchResultsUpdater = self
-        searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Search for a username"
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
@@ -193,16 +192,16 @@ extension FollowersVC:UICollectionViewDelegate{
 extension FollowersVC:UISearchResultsUpdating,UISearchBarDelegate{
     func updateSearchResults(for searchController: UISearchController) {
         guard let filter = searchController.searchBar.text,
-              !filter.isEmpty else{ return}
+              !filter.isEmpty else{
+            filteredFollower.removeAll()
+            isSearching = false 
+            updateData(listFollower: followers)
+            return}
         isSearching = true
         filteredFollower = followers.filter({$0.login.lowercased().contains(filter.lowercased())})
         updateData(listFollower: filteredFollower)
  }
     //Arama kımında cancel dedğimizde sadece aradığımız kelimeeleri içeren kişiler geliyor liste eski haline dönmüyor bunun için cancel buton fonk kullanmalıyız tabiki UISearchBarDelegate protocolunu extend etmemeiz lazım viewımıza.
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        isSearching = false
-        updateData(listFollower: self.followers)
-    }
     
 }
 
@@ -213,7 +212,7 @@ extension FollowersVC:FollowerListVCDelegate{
         page = 1
         followers.removeAll()
         filteredFollower.removeAll()
-        collectionView.setContentOffset(.zero, animated: true)
+        collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
         getFollowers(username: userName, page: page)
         
     }
