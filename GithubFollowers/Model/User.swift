@@ -24,10 +24,7 @@ struct User: Codable {
     let createdAt:String
     
 
-  
-
-
-    enum CodingKeys: String, CodingKey {
+  enum CodingKeys: String, CodingKey {
         
         case login
         case name

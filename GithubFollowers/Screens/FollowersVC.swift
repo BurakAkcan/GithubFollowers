@@ -11,7 +11,7 @@ protocol FollowerListVCDelegate:AnyObject{
     func didRequestFollowers(for userName:String)
 }
 
-class FollowersVC: UIViewController {
+class FollowersVC: GFDataLoadingViewController {
     
     enum Section{
         case main
@@ -42,6 +42,16 @@ class FollowersVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setToolbarHidden(true, animated: true)
+    }
+    
+    init(username:String){
+        super.init(nibName: nil, bundle: nil)
+        self.username = username
+        title = username
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func configureViewController(){

@@ -25,6 +25,8 @@
 		545021A428AE8383005848B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 545021A228AE8383005848B4 /* LaunchScreen.storyboard */; };
 		546BFFEE28AEBBB800D5F9C5 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546BFFED28AEBBB800D5F9C5 /* GFButton.swift */; };
 		54714BE328B586CC0043CAED /* GFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54714BE228B586CC0043CAED /* GFEmptyStateView.swift */; };
+		54729F9928BF8505006FB242 /* GFAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54729F9828BF8505006FB242 /* GFAlertContainerView.swift */; };
+		54729F9B28BFCFA0006FB242 /* GFDataLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54729F9A28BFCFA0006FB242 /* GFDataLoadingViewController.swift */; };
 		547E346928BBE1DC00985012 /* GFRepoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547E346828BBE1DC00985012 /* GFRepoItemVC.swift */; };
 		547E346B28BBEF1A00985012 /* GFFollowerItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547E346A28BBEF1A00985012 /* GFFollowerItemVC.swift */; };
 		547E346E28BC204F00985012 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547E346D28BC204F00985012 /* Date+Extension.swift */; };
@@ -64,6 +66,8 @@
 		545021A528AE8383005848B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		546BFFED28AEBBB800D5F9C5 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		54714BE228B586CC0043CAED /* GFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyStateView.swift; sourceTree = "<group>"; };
+		54729F9828BF8505006FB242 /* GFAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAlertContainerView.swift; sourceTree = "<group>"; };
+		54729F9A28BFCFA0006FB242 /* GFDataLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFDataLoadingViewController.swift; sourceTree = "<group>"; };
 		547E346828BBE1DC00985012 /* GFRepoItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFRepoItemVC.swift; sourceTree = "<group>"; };
 		547E346A28BBEF1A00985012 /* GFFollowerItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowerItemVC.swift; sourceTree = "<group>"; };
 		547E346D28BC204F00985012 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -212,6 +216,7 @@
 			children = (
 				54714BE228B586CC0043CAED /* GFEmptyStateView.swift */,
 				54EC4B6B28BBA6A70002E877 /* GFItemInfoView.swift */,
+				54729F9828BF8505006FB242 /* GFAlertContainerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -246,6 +251,7 @@
 				547E346C28BBF04400985012 /* ItemInfoVC */,
 				5416F8E028AFFFD70012C27B /* GFAlertVCViewController.swift */,
 				54C19E1628BA96340040114C /* GFUserInfoHeaderVC.swift */,
+				54729F9A28BFCFA0006FB242 /* GFDataLoadingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -367,6 +373,7 @@
 				5403CFF628B39217005978D3 /* UIHelpers.swift in Sources */,
 				546BFFEE28AEBBB800D5F9C5 /* GFButton.swift in Sources */,
 				544D7B4B28B254BB00A4D479 /* FollowerCell.swift in Sources */,
+				54729F9B28BFCFA0006FB242 /* GFDataLoadingViewController.swift in Sources */,
 				544D7B4D28B25F2300A4D479 /* GFAvatarImageView.swift in Sources */,
 				549FCA8528B0EF76007E70CA /* User.swift in Sources */,
 				547E346928BBE1DC00985012 /* GFRepoItemVC.swift in Sources */,
@@ -378,6 +385,7 @@
 				54F97F5328AE9DDF00460CAE /* SearchVC.swift in Sources */,
 				547E346E28BC204F00985012 /* Date+Extension.swift in Sources */,
 				5416F8DB28AFFB900012C27B /* GFTitleLabel.swift in Sources */,
+				54729F9928BF8505006FB242 /* GFAlertContainerView.swift in Sources */,
 				54C19E1728BA96340040114C /* GFUserInfoHeaderVC.swift in Sources */,
 				54714BE328B586CC0043CAED /* GFEmptyStateView.swift in Sources */,
 				54EC4B6E28BBB6280002E877 /* GFItemInfoVC.swift in Sources */,

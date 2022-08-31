@@ -28,7 +28,11 @@ class FollowerCell: UICollectionViewCell {
     
     func set(follower:Follower){
         usernameLabel.text = follower.login
-        avaterImageView.downloadImage(from: follower.avatarURL)
+        NetworkManager.shared.downloadImage(from: follower.avatarURL) { [weak self ](image) in
+            DispatchQueue.main.async {
+                self?.avaterImageView.image = image?.resizeImage(100, opaque: false)
+            }
+        }
         avaterImageView.contentMode = .scaleAspectFit
         avaterImageView.clipsToBounds = true
     }
